@@ -1,1 +1,2 @@
-The write file overwrites the subsequent entry. Get it to move to the next row
+The write file overwrites the subsequent entry. Get it to move to the next row (Done)
+Create a system to deploy the program for one minute every hour
