@@ -7,7 +7,7 @@ import sys #import the sys library that is needed by the sys.exit() feature to c
 Dataline =[] #create an empty list called "Dataline" to hold a single row of data
 readings = 0
 #initialize the serial port reader by specifying the parameter of the serial port the data will be coming in from
-serialPort = serial.Serial(port = "COM7", baudrate=115200,
+serialPort = serial.Serial(port = "COM5", baudrate=115200,
                            bytesize=8, timeout=2, stopbits=serial.STOPBITS_ONE)
 
 
@@ -18,7 +18,7 @@ while (readings<10):
     #Wait until Ten reading have been collected
 
     if(serialPort.in_waiting>0):
-        f = open('C:/Users/aolch/Documents/Python Simple Temperature Logger/Kisumu-temperature-humidity.csv', 'a',newline='') #open the csv file that will be written to. 'a' worked, 'w' did not
+        f = open('C:/Users/Charlie.O/Documents/Python Projects/Python-Simple-Temperature-Logger/Kisumu-temperature-humidity.csv', 'a',newline='') #open the csv file that will be written to. 'a' worked, 'w' did not
         writer=csv.writer(f) #create an instance of the csv writer that will be writing to the file 'f'
         Time = datetime.now() #Get the current date and time
         UnixTime = str(time.mktime(Time.timetuple())) #convert the current date and time to unixtime. Makes writing to csv less 'clanky'
