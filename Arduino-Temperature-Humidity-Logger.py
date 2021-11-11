@@ -2,7 +2,7 @@ import serial #import the serial port library
 from datetime import datetime #import the library for getting current time
 import time #import the library for converting current time to unix time
 import csv #import the csv library for writing to the csv file
-import sys
+import sys #import the sys library that is needed by the sys.exit() feature to close the program
 
 Dataline =[] #create an empty list called "Dataline" to hold a single row of data
 readings = 0
@@ -11,12 +11,11 @@ serialPort = serial.Serial(port = "COM7", baudrate=115200,
                            bytesize=8, timeout=2, stopbits=serial.STOPBITS_ONE)
 
 
-
 serialPort.close() #close the serial port to end other instances that may still be running in the background
 serialPort.open() #Open the serial port
 
 while (readings<10):
-    #Wait until there is data in the serial buffer
+    #Wait until Ten reading have been collected
 
     if(serialPort.in_waiting>0):
         f = open('C:/Users/aolch/Documents/Python Simple Temperature Logger/Kisumu-temperature-humidity.csv', 'a',newline='') #open the csv file that will be written to. 'a' worked, 'w' did not
@@ -37,7 +36,7 @@ while (readings<10):
         readings+=1
         Dataline=[] #Reinitialize the dataline list in preparation for the next reading
 
-serialPort.close()
-input("Enter any key to exit: ")
+serialPort.close() #Close the serial port
+input("Press Enter to exit: ") #Prompt the user to press enter to manually exit the program
 sys.exit()        
 
