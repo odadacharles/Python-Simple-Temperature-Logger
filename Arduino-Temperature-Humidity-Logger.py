@@ -14,8 +14,9 @@ serialPort = serial.Serial(port = "COM5", baudrate=115200,
 serialPort.close() #close the serial port to end other instances that may still be running in the background
 serialPort.open() #Open the serial port
 
-while (readings<10):
+while (readings<10): 
     #Wait until Ten reading have been collected
+
 
     if(serialPort.in_waiting>0):
         f = open('C:/Users/Charlie.O/Documents/Python Projects/Python-Simple-Temperature-Logger/Kisumu-temperature-humidity.csv', 'a',newline='') #open the csv file that will be written to. 'a' worked, 'w' did not
